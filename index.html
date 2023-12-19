@@ -74,6 +74,10 @@
             color: #8651f6;
         }
 
+        #se3 {
+            color: #b3df53;
+        }
+
         .icon1 {
             background: url('public/verified.svg');
             height: 20px;
@@ -97,6 +101,28 @@
         }
 
         .icon3 {
+            background: url('public/strim.svg');
+            height: 20px;
+            width: 20px;
+            margin-left: 5px;
+            margin-right: 5px;
+            display: inline-block;
+            position: relative;
+            top: 4px;
+        }
+
+        .icon4 {
+            background: url('public/viewer.svg');
+            height: 20px;
+            width: 20px;
+            margin-left: 5px;
+            margin-right: 5px;
+            display: inline-block;
+            position: relative;
+            top: 4px;
+        }
+
+        .icon-fav {
             background: url('public/twitch.svg');
             height: 35px;
             width: 35px;
@@ -225,7 +251,7 @@
 </head>
 <body>
     <div class="topnav">
-        <span class="icon3"></span>
+        <span class="icon-fav"></span>
         <a class="navlink" href="following">Following</a>
         <a class="navlink" href="bathtub">Bathtub Strims</a>
         <a class="navlink" href="cuck">Cuck</a>
@@ -372,7 +398,7 @@
                 message.appendChild(timestamp);
 
                 badge = document.createElement("span");
-                badge.classList.add("icon2");
+                badge.classList.add("icon3");
                 message.appendChild(badge);
 
                 username = document.createElement("b");
@@ -394,6 +420,7 @@
 
                 if(input.value == "!build"){
                     sleep(2000).then(() => {botResponse(1, 1, "StreamElements", " is an idiot...", 1, 0)});
+                    sleep(3200).then(() => {botResponse(2, 1, "goya_dechi", "Its !realbuild", 0, 0)});
                     videoPlayer1.pause();
                     vps1.src="public/video1.mp4";
                     videoPlayer1.load();
@@ -402,6 +429,8 @@
 
                 if(input.value == "!realbuild"){
                     sleep(2000).then(() => {botResponse(1, 1, "StreamElements", " is a real idiot...", 1, 0)});
+                    sleep(2500).then(() => {botResponse(4, 3, "Jampot", "It's !actualbuild", 0, 0)});
+                    sleep(5300).then(() => {botResponse(2, 2, "cipulot", "Try actualbuild", 0, 0)});
                     videoPlayer1.pause();
                     vps1.src="public/video2.mp4";
                     videoPlayer1.load();
@@ -410,11 +439,22 @@
 
                 if(input.value == "!actualbuild"){
                     sleep(2000).then(() => {botResponse(1, 1, "StreamElements", " is an actual idiot...", 1, 0)});
+                    sleep(3800).then(() => {botResponse(4, 3, "Jampot", "lmao, jebaited", 0, 0)});
                     videoPlayer1.pause();
                     vps1.src="public/video3.mp4";
                     videoPlayer1.load();
                     videoPlayer1.play();
                 }
+
+                //https://shorturl.at/iBINY
+                if(input.value == "!links"){
+                    sleep(1800).then(() => {botResponse(1, 1, "StreamElements", "https://shorturl.at/iBINY", 0, 1)});
+                }
+
+                if(input.value == "!china" || input.value == "!chyna"){
+                    sleep(1800).then(() => {botResponse(1, 1, "StreamElements", "https://www.youtube.com/watch?v=UctriMuXYS0&ab_channel=VocalNationalAnthems", 0, 1)});
+                }
+
 
                 if(input.value == "!copper"){
                     sleep(2000).then(() => {botResponse(1, 1, "StreamElements", "https://www.masjewerke.com/guide", 0, 1)});
