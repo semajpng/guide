@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meme Roulette</title>
+    <link rel="icon" type="image/x-icon" href="public/eggplant.png">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .image-container {
+            width: 500px;
+            margin: auto;
+            margin-top: 20px;
+        }
+        
+        .welcome {
+            width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .intro {
+            margin-top: 40px;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .outro {
+            font-size: 20px;
+        }
+
+        #footnote {
+            margin-top: 40px;
+            display: none;
+            text-align: center;
+        }
+
+        button {
+            background-color: #dfdfdf;
+            border-style: none;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 18px;
+            transition-property: background-color;
+            transition-duration: 0.5s;
+        }
+
+        button:hover {
+            background-color: #bbbbbb;
+            transition-property: background-color;
+            transition-duration: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome">
+        <div class="intro"><b>Welcome to Meme Roulette!</b></div>
+        <button id="button">Press me for new meme</button>
+    </div>
+    <div class="image-container">
+        <img width="100%" id="memeViewer" src=""/>
+    </div>
+    <div class="welcome">
+        <p class="outro" id="footnote"></p>
+    </div>
+
+    <script>
+        function randomNumberGenerator(max) {
+            return Math.floor(Math.random() * max)+1;
+        }
+
+        var memeViewer = document.getElementById("memeViewer");
+        var button = document.getElementById("button");
+        var footnote = document.getElementById("footnote");
+        var author = document.getElementById("author");
+
+        button.addEventListener("click", function(){
+            let result = randomNumberGenerator(10);
+            let lastResult = 0;
+            
+            memeViewer.src = "memes/" + result.toString() + ".png";
+            //memeViewer.load();
+            console.log(result);
+            switch(result) {
+                case 1:
+                    footnote.textContent = "Meme by Bachoo";
+                    break;
+                case 2:
+                    footnote.textContent = "Meme by funqkey";
+                    break;
+                case 3:
+                    footnote.textContent = "Meme by dyno";
+                    break;
+                case 4:
+                    footnote.textContent = "Meme by fraaaaaaaaaaaaaaan";
+                    break;
+                case 5:
+                    footnote.textContent = "Meme by lmarci";
+                    break;
+                case 6:
+                    footnote.textContent = "Meme by myth";
+                    break;
+                case 7:
+                    footnote.textContent = "Meme by muto";
+                    break;
+                case 8:
+                    footnote.textContent = "Meme by dyno";
+                    break;
+                case 9:
+                    footnote.textContent = "Meme by m00ds";
+                    break;
+                case 10:
+                    footnote.textContent = "Meme by fraaaaaaaaaaaaaaan";
+                    break;
+            }
+            footnote.style.display = "initial";
+        })
+
+    </script>
+</body>
+</html>

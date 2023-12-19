@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nut Simulator 2023</title>
+    <link rel="icon" type="image/x-icon" href="public/eggplant.png">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .window {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .left {
+            width: 75%;
+            margin: 10px;
+        }
+
+        .right {
+            width: 25%;
+            margin: 10px;
+        }
+
+
+        .chatbox {
+            width: 100%;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            margin-bottom: 20px;
+            min-height: 80vh;
+            max-height: 80vh;
+        }
+
+        .chat {
+            font-size: 16px;
+            line-height: 150%;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        .welcome {
+            color: grey;
+            font-size: 16px;
+            line-height: 150%;
+            margin-top: 10px;
+        }
+
+        .title {
+            border-width: 1px;
+            border-color: grey;
+            color: grey;
+            font-size: 14px;
+            font-weight: 600;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 10px;
+        }
+
+        .smol {
+            font-size: 13px;
+            position: relative;
+            top: -0.5px;
+            color: grey;
+        }
+
+        #se1 {
+            color: #6699ff;
+        }
+
+        #se2 {
+            color: #8651f6;
+        }
+
+        .icon1 {
+            background: url('public/verified.svg');
+            height: 20px;
+            width: 20px;
+            margin-left: 5px;
+            margin-right: 5px;
+            display: inline-block;
+            position: relative;
+            top: 4px;
+        }
+
+        .icon2 {
+            background: url('public/mod.svg');
+            height: 20px;
+            width: 20px;
+            margin-left: 5px;
+            margin-right: 5px;
+            display: inline-block;
+            position: relative;
+            top: 4px;
+        }
+
+        .icon3 {
+            background: url('public/twitch.svg');
+            height: 35px;
+            width: 35px;
+            margin-left: 0px;
+            margin-right: 2px;
+            display: inline-block;
+            position: relative;
+            resize: horizontal;
+            top: 10px;
+            color: #8651f6;
+        }
+
+        .icon-sm {
+            background: url('public/verified-sm.svg');
+            height: 20px;
+            width: 20px;
+            margin-left: 0px;
+            margin-right: 2px;
+            display: inline-block;
+            position: relative;
+            top: 3.5px;
+            color: #8651f6;
+        }
+
+        .profile {
+            background: url('public/profile.png');
+            height: 70px;
+            width: 70px;
+            border-radius: 35px;
+            margin-top: 20px;
+            margin-left: 20px;
+            margin-right: 10px;
+            display: inline-block;
+            border-style: solid;
+            border-color: grey;
+            border-width: 2px;
+        }
+
+        .profileText {
+            margin-top: 20px;
+            margin-left: 5px;
+        }
+
+        .topnav {
+            margin: 10px;
+            margin-top: 0px;
+        }
+
+        .navlink {
+            font-weight: 600;
+            font-size: 20px;
+            margin: 15px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .navlink:hover {
+            color: #8651f6;
+        }
+
+        .streamer {
+            display: flex;
+        }
+
+        .name {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 180%;
+        }
+
+        .text {
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .game {
+            font-size: 15px;
+            font-weight: 700;
+            color: #6631d9;
+        }
+        
+
+        .button {
+            border-radius: 6px;
+            border: none;
+            color: white;
+            background-color: #8651f6;
+            font-size: 14px;
+            font-weight: 400;
+            padding: 12px;
+            margin: 18px 0px;
+            width: fit-content;
+        }
+
+        .button:hover {
+            background-color: #6631d9;
+        }
+
+        .highlight {
+            background-color: #dfdfdf;
+        }
+
+        .videoPlayer {
+            width: 100%;
+            margin: auto;
+        }
+
+        #input {
+            width: 75%;
+            height: 25px;
+            border-radius: 6px;
+            border-width: 1px;
+            padding: 6px;
+        }
+
+        #input:focus {
+            border-width: 3px;
+            border-color: #6631d9;
+        }
+
+        #link {
+            text-decoration: underline;
+            color: #6631d9;
+        }
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <span class="icon3"></span>
+        <a class="navlink" href="following">Following</a>
+        <a class="navlink" href="bathtub">Bathtub Strims</a>
+        <a class="navlink" href="cuck">Cuck</a>
+      </div>
+    <div class="window">
+        <div class="left">
+            <video id="videoPlayer1" class="videoPlayer">
+                <source id="vps1" src="public/video0.mp4" type="video/mp4">
+            </video>
+            <div class="streamer">
+                <span class="profile"></span>
+                <p class="profileText">
+                    <a class="name">Blacksimon<a class="icon-sm"></a><br></a>
+                    <a class="text">end me right now (cucking ASMR)<br></a>
+                    <a class="game">Old School Minecraft</a>
+                </p>
+            </div>
+        </div>
+        <div class="right">
+            <div class="title">STRIM CHAT</div>
+            <div class="chatbox" id="chatbox">
+                <div class="welcome">Welcome to the chat room.</div>
+            </div>
+
+            <form id="form">
+                <input type="text" id="input" placeholder="Send a message"/>
+                <button type="submit" class="button" id="bt">Chat</button>
+            </form>
+        </div>
+    </div>
+
+        
+
+    <script>
+        window.alert("Click anywhere to begin.");
+
+        var sm1 = document.getElementById('sm1');
+
+        function getTimestamp(){
+            const currentTime = new Date();
+            let currentHours = 0;
+            let currentMinutes = 0;
+            currentHours = Number(currentTime.getHours());
+            currentMinutes = Number(currentTime.getMinutes());
+            if(currentHours > 12){
+                currentHours = (currentHours - 12).toString();
+            }else{
+                currentHours = currentHours.toString();
+            }
+
+            if(currentMinutes < 10){
+                currentMinutes = "0" + currentMinutes.toString();
+            }else{
+                currentMinutes = currentMinutes.toString();
+            }
+
+            return (currentHours + ":" + currentMinutes);
+        }
+
+        function botResponse(type, color, username, response, on, link){
+            let botMessage = "";
+            let botTimestamp = "";
+            let botMsg = "";
+            let botBadge = "";
+            let botUsername = "";
+            let botSemi = "";
+            let botTag = "";
+
+            botMessage = chatbox.appendChild(document.createElement("div"));
+            botMessage.classList.add("chat");
+            botTimestamp = document.createElement("a");
+            botTimestamp.classList.add("smol");
+            botTimestamp.textContent = getTimestamp();
+            botMessage.appendChild(botTimestamp);
+
+            botBadge = document.createElement("span");
+            botBadge.classList.add("icon" + type.toString());
+            botMessage.appendChild(botBadge);
+        
+            botUsername = document.createElement("b");
+            botUsername.id = "se" + color.toString();
+            botUsername.textContent = username;                
+            botMessage.appendChild(botUsername);
+
+            botSemi = document.createElement("a");
+            botSemi.textContent = ": ";
+            botMessage.appendChild(botSemi);
+
+            if(on == 1){
+                botTag = document.createElement("a");
+                botTag.classList.add("highlight");
+                botTag.textContent = "@Blacksimon";
+                botMessage.appendChild(botTag);
+            }
+
+
+            botMsg = document.createElement("a");
+            botMsg.textContent = response;
+            if(link == 1){
+                botMsg.id = "link";
+                botMsg.href = response;
+            }
+            botMessage.appendChild(botMsg);
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        var set = 0;
+        var videoPlayer1 = document.getElementById('videoPlayer1');
+        var vps1 = document.getElementById('vps1');
+
+        var body = document.querySelector("body");
+        var started = 0;
+        body.addEventListener("click", function(){
+            if(started == 0){
+                videoPlayer1.play();
+                started = 1;
+            }
+        })
+
+
+        const form = document.getElementById('form');
+        const input = document.getElementById('input');
+        var chatbox = document.getElementById('chatbox');
+        let timestamp = "";
+        let badge = "";
+        let username = "";
+        let message = "";
+        let msg = "";
+
+
+        form.addEventListener("submit", function(event){
+            event.preventDefault();
+            if(input.value != ""){
+                message = chatbox.appendChild(document.createElement("div"));
+                message.classList.add("chat");
+                timestamp = document.createElement("a");
+                timestamp.classList.add("smol");
+                timestamp.id = "sm1";
+                timestamp.textContent = getTimestamp();
+                message.appendChild(timestamp);
+
+                badge = document.createElement("span");
+                badge.classList.add("icon2");
+                message.appendChild(badge);
+
+                username = document.createElement("b");
+                username.id = "se2";
+                username.textContent = "Blacksimon";
+                message.appendChild(username);
+                
+                msg = document.createElement("a");
+                msg.textContent = ": " + input.value;
+                message.appendChild(msg);
+
+                if(input.value == "!uwu"){
+                    sleep(2000).then(() => {botResponse(1, 1, "StreamElements", "The Gondo says: UwU.", 0, 0)});
+                }
+
+                if(input.value == "!gamble all"){
+                    sleep(2000).then(() => {botResponse(1, 1, "StreamElements", " went all in and lost every single one of their 42069 simoncoin. Feelsbadman.", 1, 0)});
+                }
+
+                if(input.value == "!build"){
+                    sleep(2000).then(() => {botResponse(1, 1, "StreamElements", " is an idiot...", 1, 0)});
+                    videoPlayer1.pause();
+                    vps1.src="public/video1.mp4";
+                    videoPlayer1.load();
+                    videoPlayer1.play();
+                }
+
+                if(input.value == "!realbuild"){
+                    sleep(2000).then(() => {botResponse(1, 1, "StreamElements", " is a real idiot...", 1, 0)});
+                    videoPlayer1.pause();
+                    vps1.src="public/video2.mp4";
+                    videoPlayer1.load();
+                    videoPlayer1.play();
+                }
+
+                if(input.value == "!actualbuild"){
+                    sleep(2000).then(() => {botResponse(1, 1, "StreamElements", " is an actual idiot...", 1, 0)});
+                    videoPlayer1.pause();
+                    vps1.src="public/video3.mp4";
+                    videoPlayer1.load();
+                    videoPlayer1.play();
+                }
+
+                if(input.value == "!copper"){
+                    sleep(2000).then(() => {botResponse(1, 1, "StreamElements", "https://www.masjewerke.com/guide", 0, 1)});
+                }
+                
+                chatbox.scrollTop = chatbox.scrollHeight;
+                input.value = "";
+            }
+        });
+    </script>
+</body>
+</html>
