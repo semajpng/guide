@@ -31,6 +31,7 @@
             color: white;
             line-height: 200%;
             display: flex;
+            justify-content: space-evenly;
         }
 
         h2 {
@@ -46,36 +47,52 @@
 
 
         .left {
-            width: 30%;
-            margin-left: 80px;
+            width: 20vw;
+            padding: 0px 20px;
         }
 
+        .mid-sm {
+            width: 16vw;
+            padding: 0px 20px;
+        }
 
         .mid {
-            width: 30%;
-            margin-left: 80px;
+            width: 23vw;
+            padding: 0px 20px;
         }
 
         .right {
-            width: 30%;
-            margin-left: 80px;
+            width: 23vw;
+            padding: 0px 20px;
         }
 
         .introduction {
+            width: 90vw;
             color: white;
-            margin-left: 100px;
-            margin-top: 50px;
+            margin: auto;
+            margin-top: 35px;
+            display: flex;
+            justify-content: space-evenly;
+            margin-bottom: 35px;
         }
 
         h1 {
             color: white;
-            margin-left: 80px;
+            font-size: 40px;
+            line-height: 120%;
         }
 
         .intro {
-            margin-left: 80px;
             color: white;
-            line-height: 150%;
+            line-height: 200%;
+            margin: auto 0px;
+        }
+
+        .hello {
+            color: white;
+            line-height: 200%;
+            margin: auto 0px;
+            text-align: left;
         }
 
         .layout {
@@ -84,20 +101,27 @@
             background: url('public/keyboard-layout.svg');
             background-repeat: no-repeat;
         }
+
+        #pp {
+            color: #75487e !important;
+        }
     </style>
 </head>
 <body>
     <div class="eggplant"></div>
-    <p class="introduction"><h1>Hello simon, welcome to the JE-BAE-TED build guide.</h1>
+    <div class="introduction">
+        <div class="hello">
+            <h1>Hello, <br>welcome to the JE-BAE-TED build guide.</h1>
+        </div>    
         <div class="intro">
-        First of all, I would like to thank <b>Cipulot</b> for helping with the design of this PCB, both MX and EC.<br>
-        I also want to thank <b>Pontus</b> for the renders as well as <b>Bachoo</b> for the 3D model feedback!<br>
-        Lastly, a big thank you to the community for entertaining this silly idea.
+            First of all, I would like to thank <b>Cipulot</b> for helping with the design of this PCB, both MX and EC. They turned out amazing!<br>
+            I also want to thank <b>Pontus</b> for the renders as well as <b>Bachoo</b> for the 3D model feedback!<br>
+            Lastly, a big thank you to the community for entertaining this silly idea. Happy thocctober!
         </div>
-    </p>
+    </div>
     <div class="container">
         <div class="left">
-            <p><h2>Included in the box, you will find</h2>
+            <p><h2>Included in the box, <br>you will find</h2>
                 ✱  1x JE-BAE-TED™ keybort (purple top, brass bottom)<br>
                 ✱  2x MX/ALPS Solder PCBs<br>
                 ✱  2x EC PCBs<br>
@@ -112,7 +136,9 @@
                 ✱  5x ALPS Switches (clones)<br>
                 ✱  1x ALPS Stab kit<br>
             </p>
+        </div>
 
+        <div class="mid-sm">
             <p><h2>Keybort Specs</h2>
                 ✱  9 Degree Typing Angle<br>
                 ✱  AFH: 21.4 mm<br>
@@ -120,51 +146,59 @@
                 ✱  Mounting method: O-ring / Top Mount<br>
                 ✱  Switch Support: MX / ALPS / EC<br>
             </p>
-        </div>
 
-        <div class="mid">
             <p><h2>Layout Support</h2>
                 ✱  Supports ANSI enter + 1u<br>
                 ✱  Supports Numpad enter + 1u<br>
                 ✱  Supports BAE<br>
-                <a href="http://www.keyboard-layout-editor.com/##@@_x:0.75&a:7&w:1.5&h:2&w2:2.25&h2:1&x2:-0.75&y2:1;&=&_x:1.5&w:1.25&h:2&w2:1.5&h2:1&x2:-0.25;&=&_x:1.25&w:1.5;&=&_x:1.5&h:2;&=;&@_x:2.75;&=&_x:1.75&w:2.25;&=&_x:0.5;&=">link</a>
+                <a href="http://www.keyboard-layout-editor.com/##@@_x:0.75&a:7&w:1.5&h:2&w2:2.25&h2:1&x2:-0.75&y2:1;&=&_x:1.5&w:1.25&h:2&w2:1.5&h2:1&x2:-0.25;&=&_x:1.25&w:1.5;&=&_x:1.5&h:2;&=;&@_x:2.75;&=&_x:1.75&w:2.25;&=&_x:0.5;&=">LINK</a>
+                <br>
+                <a href="https://drive.google.com/drive/folders/1K1gClvnIfX4MvTf2sbCsfTamgHGqEYy_?usp=drive_link">JSON FILES</a>
             </p>
 
+
+        </div>
+
+        <div class="mid">
             <p><h2>Build Guide: MX (Top Mount)</h2>
-                Step 1 ✱ Assemble switches onto the PC plate of your choosing (ANSI/ISO)<br>
-                Step 2 ✱ Mount the plate and switches onto the top case<br>
-                Step 3 ✱ Assemble your stabs onto your MX/ALPS PCB<br>
-                Step 4 ✱ Solder your top case assembly onto the PCB<br>
-                Step 5 ✱ Enjoy. If you need to disassemble, <b>desolder first!</b>
+                1 ✱ Assemble switches onto the PC plate of your choosing (ANSI/ISO)<br>
+                2 ✱ Mount the plate and switches onto the top case<br>
+                3 ✱ Assemble your stabs onto your MX/ALPS PCB<br>
+                4 ✱ Solder your top case assembly onto the PCB<br>
+                5 ✱ Enjoy. If you need to disassemble, <b>desolder first!</b>
             </p>
 
             <p><h2>Build Guide: MX (O-Ring Mount)</h2>
-                Step 1 ✱ Assemble stabs onto your MX/ALPS PCB<br>
-                Step 2 ✱ Solder on your switches. <i>Plate is optional.</i><br>
-                Step 3 ✱ Install ⌀3mm gummy snek onto top case (F1 style)<br>
-                Step 4 ✱ Install ⌀2.7mm gummy snek between PCB assembly and bottom case<br>
-                Step 5 ✱ Screw the top case and bottom case together!<br>
+                1 ✱ Assemble stabs onto your MX/ALPS PCB<br>
+                2 ✱ Solder on your switches. <i>Plate is optional.</i><br>
+                3 ✱ Install ⌀3mm gummy snek onto top case (F1 style)<br>
+                4 ✱ Install ⌀2.7mm gummy snek between PCB assembly and bottom case<br>
+                5 ✱ Screw the top case and bottom case together!<br>
             </p>
         </div>
 
+
         <div class="right">
             <p><h2>Build Guide: ALPS</h2>
-                Step 1 ✱ Figure out how to assemble the plate, switches, and costar stabs<br>
-                Step 2 ✱ Experience the pain of Step 1<br>
-                Step 3 ✱ Think about giving up. <i>But, you are professional keybort strimer</i><br>
-                Step 4 ✱ ???<br>
-                Step 5 ✱ Profit<br>
+                1 ✱ Figure out how to assemble the plate, switches, and costar stabs<br>
+                2 ✱ Experience the pain of Step 1<br>
+                3 ✱ Think about giving up. <i>But, you are professional keybort strimer</i><br>
+                4 ✱ ???<br>
+                5 ✱ Profit<br>
             </p>
 
             <p><h2>Build Guide: EC</h2>
-                Step 0 ✱ Steal 1u & 2u EC parts, screws from Baul<br>
-                Step 1 ✱ Assemble the EC assembly(plates/EC parts/EC PCB)<br>
-                Step 2 ✱ Install ⌀3mm gummy snek onto top case (F1 style)<br>
-                Step 3 ✱ Install ⌀2.7mm gummy snek between PCB assembly and bottom case<br>
-                Step 4 ✱ Screw the top case and bottom case together!<br>
+                0 ✱ Steal EC parts & screws from Baul<br>
+                1 ✱ Assemble the EC assembly<br>
+                2 ✱ Install ⌀3mm gummy snek onto top case (F1 style)<br>
+                3 ✱ Install ⌀2.7mm gummy snek between PCB assembly and bottom case<br>
+                4 ✱ Screw the top case and bottom case together!<br>
             </p>
 
-            <a href="https://drive.google.com/drive/folders/1K1gClvnIfX4MvTf2sbCsfTamgHGqEYy_?usp=drive_link">JSON FILES</a>
+            <p>
+                <h2 id="pp">Click to grow your PP.</h2>
+            </p>
+
         </div>
         <audio id="audioPlayer">
             <source src="public/nut.mp3" type="audio/mpeg">
@@ -172,7 +206,7 @@
     </div>
 
     <script>
-        window.alert("click to grow your PP");
+        //window.alert("click to grow your PP");
 
         const xBias = 0.6;
         const yBias = 0.6;
@@ -180,6 +214,7 @@
         let currentSize = 30;
 
 
+        
         const moveCursor = (e)=> {
             const mouseY = e.clientY - currentSize*yBias;
             const mouseX = e.clientX - currentSize*xBias;
@@ -208,6 +243,7 @@
 
             cursorEggplant.style.transform = `translate3d(${mouseXr}px, ${mouseYr}px, 0)`;
         });
+        
     </script>
 </body>
 </html>
