@@ -366,6 +366,10 @@
         var videoPlayer1 = document.getElementById('videoPlayer1');
         var vps1 = document.getElementById('vps1');
 
+        while(1){
+            sleep(2000).then(() => {console.log(videoPlayer1.offsetHeight)});
+        }
+
         var body = document.querySelector("body");
         var started = 0;
         body.addEventListener("click", function(){
